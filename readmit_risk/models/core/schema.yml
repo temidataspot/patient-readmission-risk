@@ -1,0 +1,34 @@
+version: 2
+
+models:
+  - name: patients_enriched
+    columns:
+      - name: patient_id
+        tests: [not_null, unique]
+
+  - name: admissions_enriched
+    columns:
+      - name: admission_id
+        tests: [not_null, unique]
+
+  - name: claims_enriched
+    columns:
+      - name: claim_id
+        tests: [not_null, unique]
+
+  - name: labs_enriched
+    columns:
+      - name: lab_id
+        tests: [not_null, unique]
+
+  - name: pharmacy_enriched
+    columns:
+      - name: rx_id
+        tests: [not_null, unique]
+
+  - name: fact_readmissions
+    columns:
+      - name: admission_id
+        tests: [not_null, unique]
+      - name: label_readmit_30
+        tests: [not_null]

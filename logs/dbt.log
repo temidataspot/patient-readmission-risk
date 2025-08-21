@@ -1,0 +1,166 @@
+[0m00:12:53.241321 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002EE070BBE90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002EE06E15210>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002EE06F83C90>]}
+
+
+============================== 00:12:53.244897 | 1fe9222e-9d25-426a-82de-a04bae90dd95 ==============================
+[0m00:12:53.244897 [info ] [MainThread]: Running with dbt=1.10.9
+[0m00:12:53.244897 [debug] [MainThread]: running dbt with arguments {'partial_parse': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'send_anonymous_usage_stats': 'True', 'warn_error': 'None', 'cache_selected_only': 'False', 'target_path': 'None', 'version_check': 'True', 'invocation_command': 'dbt debug', 'log_format': 'default', 'use_colors': 'True', 'introspect': 'True', 'debug': 'False', 'log_cache_events': 'False', 'fail_fast': 'False', 'no_print': 'None', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'printer_width': '80', 'log_path': 'logs', 'indirect_selection': 'eager', 'profiles_dir': 'C:\\Users\\Administrator\\.dbt', 'static_parser': 'True', 'write_json': 'True'}
+[0m00:12:53.270647 [info ] [MainThread]: dbt version: 1.10.9
+[0m00:12:53.270647 [info ] [MainThread]: python version: 3.11.0
+[0m00:12:53.270647 [info ] [MainThread]: python path: C:\Users\Administrator\Documents\health-readmission-case\.venv\Scripts\python.exe
+[0m00:12:53.273658 [info ] [MainThread]: os info: Windows-10-10.0.22631-SP0
+[0m00:12:53.541838 [info ] [MainThread]: Using profiles dir at C:\Users\Administrator\.dbt
+[0m00:12:53.541838 [info ] [MainThread]: Using profiles.yml file at C:\Users\Administrator\.dbt\profiles.yml
+[0m00:12:53.541838 [info ] [MainThread]: Using dbt_project.yml file at C:\Users\Administrator\Documents\health-readmission-case\dbt_project.yml
+[0m00:12:53.541838 [info ] [MainThread]: adapter type: sqlserver
+[0m00:12:53.541838 [info ] [MainThread]: adapter version: 1.9.0
+[0m00:12:53.541838 [info ] [MainThread]: Configuration:
+[0m00:12:53.554920 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m00:12:53.554920 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m00:12:53.556540 [info ] [MainThread]: Required dependencies:
+[0m00:12:53.556540 [debug] [MainThread]: Executing "git --help"
+[0m00:12:53.562601 [info ] [MainThread]:  - git [[31mERROR[0m]
+
+[0m00:12:53.564630 [info ] [MainThread]: Connection:
+[0m00:12:53.564630 [info ] [MainThread]:   server: DESKTOP-DUU3C7T
+[0m00:12:53.564630 [info ] [MainThread]:   database: ReadmitDB
+[0m00:12:53.566466 [info ] [MainThread]:   schema: dbo
+[0m00:12:53.566466 [info ] [MainThread]:   UID: dbt_users
+[0m00:12:53.566466 [info ] [MainThread]:   client_id: None
+[0m00:12:53.566466 [info ] [MainThread]:   authentication: sql
+[0m00:12:53.569471 [info ] [MainThread]:   encrypt: True
+[0m00:12:53.569471 [info ] [MainThread]:   trust_cert: True
+[0m00:12:53.569471 [info ] [MainThread]:   retries: 3
+[0m00:12:53.570976 [info ] [MainThread]:   login_timeout: 0
+[0m00:12:53.570976 [info ] [MainThread]:   query_timeout: 0
+[0m00:12:53.570976 [info ] [MainThread]:   trace_flag: False
+[0m00:12:53.572982 [info ] [MainThread]:   port: 1433
+[0m00:12:53.572982 [info ] [MainThread]: Registered adapter: sqlserver=1.9.0
+[0m00:12:53.744707 [debug] [MainThread]: Acquiring new sqlserver connection 'debug'
+[0m00:12:53.744707 [debug] [MainThread]: Using sqlserver connection "debug"
+[0m00:12:53.744707 [debug] [MainThread]: On debug: select 1 as id
+[0m00:12:53.744707 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m00:12:53.744707 [debug] [MainThread]: sqlserver adapter: Using connection string: DRIVER={ODBC Driver 17 for SQL Server};SERVER=DESKTOP-DUU3C7T,1433;Database=ReadmitDB;UID={dbt_users};PWD=***;encrypt=Yes;TrustServerCertificate=Yes;APP=dbt-sqlserver/1.9.0
+[0m00:13:09.531771 [debug] [MainThread]: sqlserver adapter: Got a retryable error when attempting to open a sqlserver connection.
+3 attempts remaining. Retrying in 1 seconds.
+Error:
+('08001', '[08001] [Microsoft][ODBC Driver 17 for SQL Server]TCP Provider: No connection could be made because the target machine actively refused it.\r\n (10061) (SQLDriverConnect); [08001] [Microsoft][ODBC Driver 17 for SQL Server]Login timeout expired (0); [08001] [Microsoft][ODBC Driver 17 for SQL Server]A network-related or instance-specific error has occurred while establishing a connection to SQL Server. Server is not found or not accessible. Check if instance name is correct and if SQL Server is configured to allow remote connections. For more information see SQL Server Books Online. (10061)')
+[0m00:13:10.537782 [debug] [MainThread]: sqlserver adapter: Using connection string: DRIVER={ODBC Driver 17 for SQL Server};SERVER=DESKTOP-DUU3C7T,1433;Database=ReadmitDB;UID={dbt_users};PWD=***;encrypt=Yes;TrustServerCertificate=Yes;APP=dbt-sqlserver/1.9.0
+[0m00:13:26.234240 [debug] [MainThread]: sqlserver adapter: Got a retryable error when attempting to open a sqlserver connection.
+2 attempts remaining. Retrying in 1 seconds.
+Error:
+('08001', '[08001] [Microsoft][ODBC Driver 17 for SQL Server]TCP Provider: No connection could be made because the target machine actively refused it.\r\n (10061) (SQLDriverConnect); [08001] [Microsoft][ODBC Driver 17 for SQL Server]Login timeout expired (0); [08001] [Microsoft][ODBC Driver 17 for SQL Server]A network-related or instance-specific error has occurred while establishing a connection to SQL Server. Server is not found or not accessible. Check if instance name is correct and if SQL Server is configured to allow remote connections. For more information see SQL Server Books Online. (10061)')
+[0m00:13:27.236676 [debug] [MainThread]: sqlserver adapter: Using connection string: DRIVER={ODBC Driver 17 for SQL Server};SERVER=DESKTOP-DUU3C7T,1433;Database=ReadmitDB;UID={dbt_users};PWD=***;encrypt=Yes;TrustServerCertificate=Yes;APP=dbt-sqlserver/1.9.0
+[0m00:13:42.947959 [debug] [MainThread]: sqlserver adapter: Got a retryable error when attempting to open a sqlserver connection.
+1 attempts remaining. Retrying in 1 seconds.
+Error:
+('08001', '[08001] [Microsoft][ODBC Driver 17 for SQL Server]TCP Provider: No connection could be made because the target machine actively refused it.\r\n (10061) (SQLDriverConnect); [08001] [Microsoft][ODBC Driver 17 for SQL Server]Login timeout expired (0); [08001] [Microsoft][ODBC Driver 17 for SQL Server]A network-related or instance-specific error has occurred while establishing a connection to SQL Server. Server is not found or not accessible. Check if instance name is correct and if SQL Server is configured to allow remote connections. For more information see SQL Server Books Online. (10061)')
+[0m00:13:43.951558 [debug] [MainThread]: sqlserver adapter: Using connection string: DRIVER={ODBC Driver 17 for SQL Server};SERVER=DESKTOP-DUU3C7T,1433;Database=ReadmitDB;UID={dbt_users};PWD=***;encrypt=Yes;TrustServerCertificate=Yes;APP=dbt-sqlserver/1.9.0
+[0m00:13:59.702464 [debug] [MainThread]: fabric adapter: Error running SQL: select 1 as id
+[0m00:13:59.704062 [debug] [MainThread]: fabric adapter: Rolling back transaction.
+[0m00:13:59.704567 [debug] [MainThread]: On debug: No close available on handle
+[0m00:13:59.704567 [info ] [MainThread]:   Connection test: [[31mERROR[0m]
+
+[0m00:13:59.709487 [info ] [MainThread]: [31m3 checks failed:[0m
+[0m00:13:59.709487 [info ] [MainThread]: Project loading failed for the following reason:
+ project path <C:\Users\Administrator\Documents\health-readmission-case\dbt_project.yml> not found
+
+[0m00:13:59.717350 [info ] [MainThread]: Error from git --help: Could not find command, ensure it is in the user's PATH and that the user has permissions to run it: "git"
+
+[0m00:13:59.725580 [info ] [MainThread]: dbt was unable to connect to the specified database.
+The database returned the following error:
+
+  >Database Error
+  ('08001', '[08001] [Microsoft][ODBC Driver 17 for SQL Server]TCP Provider: No connection could be made because the target machine actively refused it.\r\n (10061) (SQLDriverConnect); [08001] [Microsoft][ODBC Driver 17 for SQL Server]Login timeout expired (0); [08001] [Microsoft][ODBC Driver 17 for SQL Server]A network-related or instance-specific error has occurred while establishing a connection to SQL Server. Server is not found or not accessible. Check if instance name is correct and if SQL Server is configured to allow remote connections. For more information see SQL Server Books Online. (10061)')
+
+Check your database credentials and try again. For more information, visit:
+https://docs.getdbt.com/docs/configure-your-profile
+
+
+[0m00:13:59.734354 [debug] [MainThread]: Command `dbt debug` failed at 00:13:59.734354 after 66.62 seconds
+[0m00:13:59.734354 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m00:13:59.734354 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002EE00690FD0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002EE07162190>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002EE07172810>]}
+[0m00:13:59.742443 [debug] [MainThread]: Flushing usage events
+[0m00:14:01.028577 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m00:45:01.862346 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000017E57D7F990>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000017E5B13DFD0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000017E5B379510>]}
+
+
+============================== 00:45:01.864851 | ee01beaf-6b26-4e07-b3b1-7c88efd15012 ==============================
+[0m00:45:01.864851 [info ] [MainThread]: Running with dbt=1.10.9
+[0m00:45:01.873800 [debug] [MainThread]: running dbt with arguments {'partial_parse': 'True', 'write_json': 'True', 'send_anonymous_usage_stats': 'True', 'warn_error': 'None', 'cache_selected_only': 'False', 'target_path': 'None', 'use_colors': 'True', 'invocation_command': 'dbt debug', 'log_format': 'default', 'version_check': 'True', 'introspect': 'True', 'debug': 'False', 'log_cache_events': 'False', 'fail_fast': 'False', 'no_print': 'None', 'empty': 'None', 'use_experimental_parser': 'False', 'printer_width': '80', 'quiet': 'False', 'log_path': 'logs', 'indirect_selection': 'eager', 'profiles_dir': 'C:\\Users\\Administrator\\.dbt', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'static_parser': 'True'}
+[0m00:45:01.922510 [info ] [MainThread]: dbt version: 1.10.9
+[0m00:45:01.922510 [info ] [MainThread]: python version: 3.11.0
+[0m00:45:01.922510 [info ] [MainThread]: python path: C:\Users\Administrator\Documents\health-readmission-case\.venv\Scripts\python.exe
+[0m00:45:01.922510 [info ] [MainThread]: os info: Windows-10-10.0.22631-SP0
+[0m00:45:02.395125 [info ] [MainThread]: Using profiles dir at C:\Users\Administrator\.dbt
+[0m00:45:02.395125 [info ] [MainThread]: Using profiles.yml file at C:\Users\Administrator\.dbt\profiles.yml
+[0m00:45:02.395125 [info ] [MainThread]: Using dbt_project.yml file at C:\Users\Administrator\Documents\health-readmission-case\dbt_project.yml
+[0m00:45:02.395125 [info ] [MainThread]: adapter type: sqlserver
+[0m00:45:02.402240 [info ] [MainThread]: adapter version: 1.9.0
+[0m00:45:02.403549 [info ] [MainThread]: Configuration:
+[0m00:45:02.403549 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m00:45:02.405067 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m00:45:02.407053 [info ] [MainThread]: Required dependencies:
+[0m00:45:02.407053 [debug] [MainThread]: Executing "git --help"
+[0m00:45:02.462318 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Reset current HEAD to the specified state\n   switch     Switch branches\n   tag        Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m00:45:02.462318 [debug] [MainThread]: STDERR: "b''"
+[0m00:45:02.462318 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m00:45:02.462318 [info ] [MainThread]: Connection:
+[0m00:45:02.462318 [info ] [MainThread]:   server: DESKTOP-DUU3C7T
+[0m00:45:02.468352 [info ] [MainThread]:   database: ReadmitDB
+[0m00:45:02.468352 [info ] [MainThread]:   schema: dbo
+[0m00:45:02.468352 [info ] [MainThread]:   UID: dbt_users
+[0m00:45:02.468352 [info ] [MainThread]:   client_id: None
+[0m00:45:02.468352 [info ] [MainThread]:   authentication: sql
+[0m00:45:02.468352 [info ] [MainThread]:   encrypt: True
+[0m00:45:02.468352 [info ] [MainThread]:   trust_cert: True
+[0m00:45:02.468352 [info ] [MainThread]:   retries: 3
+[0m00:45:02.477048 [info ] [MainThread]:   login_timeout: 0
+[0m00:45:02.477048 [info ] [MainThread]:   query_timeout: 0
+[0m00:45:02.477048 [info ] [MainThread]:   trace_flag: False
+[0m00:45:02.477048 [info ] [MainThread]:   port: 1433
+[0m00:45:02.477048 [info ] [MainThread]: Registered adapter: sqlserver=1.9.0
+[0m00:45:02.753780 [debug] [MainThread]: Acquiring new sqlserver connection 'debug'
+[0m00:45:02.753780 [debug] [MainThread]: Using sqlserver connection "debug"
+[0m00:45:02.753780 [debug] [MainThread]: On debug: select 1 as id
+[0m00:45:02.753780 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m00:45:02.753780 [debug] [MainThread]: sqlserver adapter: Using connection string: DRIVER={ODBC Driver 17 for SQL Server};SERVER=DESKTOP-DUU3C7T,1433;Database=ReadmitDB;UID={dbt_users};PWD=***;encrypt=Yes;TrustServerCertificate=Yes;APP=dbt-sqlserver/1.9.0
+[0m00:45:18.528246 [debug] [MainThread]: sqlserver adapter: Got a retryable error when attempting to open a sqlserver connection.
+3 attempts remaining. Retrying in 1 seconds.
+Error:
+('08001', '[08001] [Microsoft][ODBC Driver 17 for SQL Server]TCP Provider: No connection could be made because the target machine actively refused it.\r\n (10061) (SQLDriverConnect); [08001] [Microsoft][ODBC Driver 17 for SQL Server]Login timeout expired (0); [08001] [Microsoft][ODBC Driver 17 for SQL Server]A network-related or instance-specific error has occurred while establishing a connection to SQL Server. Server is not found or not accessible. Check if instance name is correct and if SQL Server is configured to allow remote connections. For more information see SQL Server Books Online. (10061)')
+[0m00:45:19.533452 [debug] [MainThread]: sqlserver adapter: Using connection string: DRIVER={ODBC Driver 17 for SQL Server};SERVER=DESKTOP-DUU3C7T,1433;Database=ReadmitDB;UID={dbt_users};PWD=***;encrypt=Yes;TrustServerCertificate=Yes;APP=dbt-sqlserver/1.9.0
+[0m00:45:35.250261 [debug] [MainThread]: sqlserver adapter: Got a retryable error when attempting to open a sqlserver connection.
+2 attempts remaining. Retrying in 1 seconds.
+Error:
+('08001', '[08001] [Microsoft][ODBC Driver 17 for SQL Server]TCP Provider: No connection could be made because the target machine actively refused it.\r\n (10061) (SQLDriverConnect); [08001] [Microsoft][ODBC Driver 17 for SQL Server]Login timeout expired (0); [08001] [Microsoft][ODBC Driver 17 for SQL Server]A network-related or instance-specific error has occurred while establishing a connection to SQL Server. Server is not found or not accessible. Check if instance name is correct and if SQL Server is configured to allow remote connections. For more information see SQL Server Books Online. (10061)')
+[0m00:45:36.252551 [debug] [MainThread]: sqlserver adapter: Using connection string: DRIVER={ODBC Driver 17 for SQL Server};SERVER=DESKTOP-DUU3C7T,1433;Database=ReadmitDB;UID={dbt_users};PWD=***;encrypt=Yes;TrustServerCertificate=Yes;APP=dbt-sqlserver/1.9.0
+[0m00:45:51.996279 [debug] [MainThread]: sqlserver adapter: Got a retryable error when attempting to open a sqlserver connection.
+1 attempts remaining. Retrying in 1 seconds.
+Error:
+('08001', '[08001] [Microsoft][ODBC Driver 17 for SQL Server]TCP Provider: No connection could be made because the target machine actively refused it.\r\n (10061) (SQLDriverConnect); [08001] [Microsoft][ODBC Driver 17 for SQL Server]Login timeout expired (0); [08001] [Microsoft][ODBC Driver 17 for SQL Server]A network-related or instance-specific error has occurred while establishing a connection to SQL Server. Server is not found or not accessible. Check if instance name is correct and if SQL Server is configured to allow remote connections. For more information see SQL Server Books Online. (10061)')
+[0m00:45:52.999259 [debug] [MainThread]: sqlserver adapter: Using connection string: DRIVER={ODBC Driver 17 for SQL Server};SERVER=DESKTOP-DUU3C7T,1433;Database=ReadmitDB;UID={dbt_users};PWD=***;encrypt=Yes;TrustServerCertificate=Yes;APP=dbt-sqlserver/1.9.0
+[0m00:46:08.723792 [debug] [MainThread]: fabric adapter: Error running SQL: select 1 as id
+[0m00:46:08.723792 [debug] [MainThread]: fabric adapter: Rolling back transaction.
+[0m00:46:08.723792 [debug] [MainThread]: On debug: No close available on handle
+[0m00:46:08.723792 [info ] [MainThread]:   Connection test: [[31mERROR[0m]
+
+[0m00:46:08.731806 [info ] [MainThread]: [31m2 checks failed:[0m
+[0m00:46:08.731806 [info ] [MainThread]: Project loading failed for the following reason:
+ project path <C:\Users\Administrator\Documents\health-readmission-case\dbt_project.yml> not found
+
+[0m00:46:08.747803 [info ] [MainThread]: dbt was unable to connect to the specified database.
+The database returned the following error:
+
+  >Database Error
+  ('08001', '[08001] [Microsoft][ODBC Driver 17 for SQL Server]TCP Provider: No connection could be made because the target machine actively refused it.\r\n (10061) (SQLDriverConnect); [08001] [Microsoft][ODBC Driver 17 for SQL Server]Login timeout expired (0); [08001] [Microsoft][ODBC Driver 17 for SQL Server]A network-related or instance-specific error has occurred while establishing a connection to SQL Server. Server is not found or not accessible. Check if instance name is correct and if SQL Server is configured to allow remote connections. For more information see SQL Server Books Online. (10061)')
+
+Check your database credentials and try again. For more information, visit:
+https://docs.getdbt.com/docs/configure-your-profile
+
+
+[0m00:46:08.755877 [debug] [MainThread]: Command `dbt debug` failed at 00:46:08.755877 after 67.00 seconds
+[0m00:46:08.755877 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m00:46:08.755877 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000017E54A610D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000017E5B3EF290>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000017E5B3EDDD0>]}
+[0m00:46:08.755877 [debug] [MainThread]: Flushing usage events
+[0m00:46:15.989013 [debug] [MainThread]: An error was encountered while trying to flush usage events
