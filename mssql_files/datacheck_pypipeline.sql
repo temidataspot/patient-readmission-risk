@@ -1,4 +1,4 @@
-```tsql
+```sql
 -- checking if the 5 csvs uploaded became tables
 SELECT table_schema, table_name
 FROM INFORMATION_SCHEMA.TABLES
