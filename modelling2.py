@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -10,28 +9,28 @@ from sklearn.preprocessing import OneHotEncoder, StandardScaler
 from sklearn.compose import ColumnTransformer
 from sqlalchemy import create_engine
 
-# ---------------- 1. Load data from SQL ----------------
+# Loading data from SQL
 engine = create_engine(
-    "mssql+pyodbc://dbt_users:para3saca1@localhost/ReadmitDB?driver=ODBC+Driver+17+for+SQL+Server"
+    "mssql+pyodbc://dbt_users:**********@localhost/ReadmitDB?driver=ODBC+Driver+17+for+SQL+Server"
 )
 
 query = "SELECT * FROM features_ml"
 df = pd.read_sql(query, engine)
 print("Data loaded:", df.shape)
 
-# ---------------- 2. Save patient_id and drop unnecessary columns ----------------
-patient_ids = df["patient_id"]  # Save for later
+# Saving patient_id for later before dropping
+patient_ids = df["patient_id"] 
 df = df.drop(columns=["admission_id", "patient_id"])
 
-# Separate features and target
+# Separating features and target
 X = df.drop("readmit_label", axis=1)
 y = df["readmit_label"]
 
-# ---------------- 3. Identify categorical and numeric columns ----------------
+# Identifying categorical and numeric columns 
 categorical = X.select_dtypes(include=["object"]).columns.tolist()
 numeric = X.select_dtypes(exclude=["object"]).columns.tolist()
 
-# ---------------- 4. Preprocessing ----------------
+# Preprocessing 
 preprocessor = ColumnTransformer(
     transformers=[
         ("num", StandardScaler(), numeric),
@@ -41,12 +40,12 @@ preprocessor = ColumnTransformer(
 
 X_processed = preprocessor.fit_transform(X)
 
-# ---------------- 5. Keep original samples (no SMOTE) ----------------
+# Keeping original samples (no SMOTE)
 X_original = X_processed
 y_original = y.reset_index(drop=True)
 patient_ids_original = patient_ids.reset_index(drop=True)
 
-# ---------------- 5a. Visualize class imbalance ----------------
+# Visualising class imbalance
 import seaborn as sns
 
 plt.figure(figsize=(6, 4))
@@ -59,12 +58,12 @@ plt.show()
 print("\nClass balance of original samples:")
 print(y_original.value_counts())
 
-# ---------------- 6. Train/test split ----------------
+# Train/test split
 X_train, X_test, y_train, y_test, pid_train, pid_test = train_test_split(
     X_original, y_original, patient_ids_original, test_size=0.3, random_state=42
 )
 
-# ---------------- 7. Logistic Regression ----------------
+# Logistic Regression
 log_model = LogisticRegression(max_iter=5000)
 log_model.fit(X_train, y_train)
 
@@ -92,7 +91,7 @@ plt.gca().invert_yaxis()
 plt.tight_layout()
 plt.show()
 
-# ---------------- 8. Random Forest ----------------
+# Random Forest
 rf_model = RandomForestClassifier(n_estimators=200, random_state=42)
 rf_model.fit(X_train, y_train)
 
@@ -117,7 +116,7 @@ plt.gca().invert_yaxis()
 plt.tight_layout()
 plt.show()
 
-# ---------------- 9. Save predictions with patient_id ----------------
+# Saving predictions with patient_id
 results_df = pd.DataFrame({
     "patient_id": pid_test,
     "true_label": y_test.values,
@@ -129,14 +128,13 @@ results_df = pd.DataFrame({
 
 print("Sample of predictions:\n", results_df.head())
 
-# Write results back to SQL Server
+# Writing results back to SQL Server
 results_df.to_sql("readmission_predictions", con=engine, if_exists="replace", index=False)
 print("✅ Predictions successfully written to SQL Server (table: readmission_predictions)")
 
-# Add risk flag using Random Forest probability
+# Adding risk flag using Random Forest probability
 results_df["rf_risk_flag"] = np.where(results_df["rf_proba"] >= 0.5, "High Risk", "Low Risk")
 results_df["lr_risk_flag"] = np.where(results_df["logistic_proba"] >= 0.5, "High Risk", "Low Risk")
 
-# Save predictions back to SQL (with risk flag included)
+# Saving predictions back to SQL (with risk flag included)
 results_df.to_sql("readmission_predictions", con=engine, if_exists="replace", index=False)
-```python
