@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import altair as alt
 
-# ---------------- Load data ----------------
+# Load data
 @st.cache_data
 def load_data():
     df = pd.read_csv("features_predictions.csv")
@@ -12,7 +12,7 @@ df = load_data()
 
 st.title("🏥 Patient Readmission Risk Dashboard")
 
-# ---------------- Sidebar Filters ----------------
+# Sidebar Filters 
 st.sidebar.header("Filters")
 
 # Department filter
@@ -27,7 +27,7 @@ selected_gender = st.sidebar.selectbox("Filter by Gender", genders)
 min_val, max_val = float(df["avg_adherence"].min()), float(df["avg_adherence"].max())
 adherence_range = st.sidebar.slider("Filter by Avg Adherence", min_val, max_val, (min_val, max_val))
 
-# ---------------- Apply Filters ----------------
+# Apply Filters
 filtered_df = df.copy()
 
 if selected_department != "All":
@@ -41,11 +41,11 @@ filtered_df = filtered_df[
     (filtered_df["avg_adherence"] <= adherence_range[1])
 ]
 
-# ---------------- Show Data ----------------
+# Show Data 
 st.subheader("Filtered Data")
 st.dataframe(filtered_df)
 
-# ---------------- Charts ----------------
+# Charts 
 st.subheader("📊 Risk Distribution")
 
 # Risk counts
@@ -60,7 +60,7 @@ chart1 = alt.Chart(risk_counts).mark_bar().encode(
 
 st.altair_chart(chart1, use_container_width=True)
 
-# ---------------- Avg Adherence by Risk ----------------
+# Avg Adherence by Risk 
 st.subheader("📊 Avg Adherence by Risk Level")
 
 chart2 = alt.Chart(filtered_df).mark_boxplot().encode(
