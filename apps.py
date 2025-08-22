@@ -31,22 +31,18 @@ adherence_range = st.sidebar.slider("Filter by Avg Adherence", min_val, max_val,
 filtered_df = df.copy()
 
 if selected_department != "All":
-    filtered_df = filtered_df[filtered_df["Department"] == selected_department]
+    filtered_df = filtered_df[filtered_df["department"] == selected_department]
 
 if selected_gender != "All":
-    filtered_df = filtered_df[filtered_df["Gender"] == selected_gender]
+    filtered_df = filtered_df[filtered_df["gender"] == selected_gender]
 
 filtered_df = filtered_df[
     (filtered_df["avg_adherence"] >= adherence_range[0]) &
     (filtered_df["avg_adherence"] <= adherence_range[1])
 ]
 
-# Show Data 
-st.subheader("Filtered Data")
-st.dataframe(filtered_df)
-
 # Charts 
-st.subheader("📊 Risk Distribution")
+st.subheader("Risk Distribution")
 
 # Risk counts
 risk_counts = filtered_df["rf_risk_flag"].value_counts().reset_index()
@@ -60,8 +56,8 @@ chart1 = alt.Chart(risk_counts).mark_bar().encode(
 
 st.altair_chart(chart1, use_container_width=True)
 
-# Avg Adherence by Risk 
-st.subheader("📊 Avg Adherence by Risk Level")
+# Average Adherence by Risk Level
+st.subheader("Average Adherence by Risk Level")
 
 chart2 = alt.Chart(filtered_df).mark_boxplot().encode(
     x="rf_risk_flag",
@@ -70,3 +66,7 @@ chart2 = alt.Chart(filtered_df).mark_boxplot().encode(
 ).properties(title="Adherence Levels per Risk Group")
 
 st.altair_chart(chart2, use_container_width=True)
+
+# Show Data 
+st.subheader("Filtered Data")
+st.dataframe(filtered_df)
