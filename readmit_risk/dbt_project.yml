@@ -3,7 +3,7 @@ version: '1.0'
 config-version: 2
 profile: 'readmit_risk'
 
-# Configure how dbt should build your models
+# Configuring how dbt should build my models
 models:
   readmit_risk:
     core:
