@@ -1,3 +1,4 @@
+```python
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -138,3 +139,4 @@ results_df["lr_risk_flag"] = np.where(results_df["logistic_proba"] >= 0.5, "High
 
 # Save predictions back to SQL (with risk flag included)
 results_df.to_sql("readmission_predictions", con=engine, if_exists="replace", index=False)
+```python
