@@ -1,4 +1,6 @@
-# Patient Readmission Risk — End-to-End ML, SQL, and Streamlit Project [Streamlit(https://patient-readmission-risks.streamlit.app/)]
+# Patient Readmission Risk — End-to-End ML, SQL, and Streamlit Project 
+
+[Streamlit](https://patient-readmission-risks.streamlit.app/)
 
 This project builds a full pipeline to predict 30-day hospital readmission risk and visualise those predictions for clinicians and analysts. Machine-learning models are trained on features stored in SQL Server, write predictions back to SQL, generate human-readable risk flags (High vs Low), join predictions back to the original features, and publish an interactive Streamlit dashboard that allows filtering by department, gender, adherence, and risk group.
 
