@@ -1,4 +1,3 @@
-```sql
 -- checking if the 5 csvs uploaded became tables
 SELECT table_schema, table_name
 FROM INFORMATION_SCHEMA.TABLES
@@ -22,5 +21,3 @@ FROM readmission_predictions;
 -- high-risk flag patients
 -- using threshold of 0.5; if probability ≥ 0.5 → predict readmission.
 -- Adding a risk flag based on random forest proba
-
-```
