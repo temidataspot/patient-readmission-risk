@@ -10,10 +10,10 @@ def load_data():
 
 df = load_data()
 
-st.title("🏥 Patient Readmission Risk Dashboard")
+st.subheader("🏥 Patient Readmission Risk Dashboard")
 
 # Sidebar Filters 
-st.sidebar.header("Filters")
+st. sidebar.header("Filters")
 
 # Department filter
 departments = ["All"] + df["department"].dropna().unique().tolist()
