@@ -2,7 +2,7 @@
 
 [Streamlit](https://patient-readmission-risks.streamlit.app/)
 
-This project builds a full pipeline to predict 30-day hospital readmission risk and visualise those predictions for clinicians and analysts. Machine-learning models are trained on features stored in SQL Server, write predictions back to SQL, generate human-readable risk flags (High vs Low), join predictions back to the original features, and publish an interactive Streamlit dashboard that allows filtering by department, gender, adherence, and risk group.
+This project builds a full pipeline to predict 30-day hospital readmission risk and visualise those predictions for clinicians and analysts. Machine-learning models are trained on features stored in SQL Server, write predictions back to SQL, generate risk flags (High vs Low), join predictions back to the original features, and publish an interactive Streamlit dashboard that allows filtering by department, gender, adherence, and risk group.
 
 **Where the core logic lives**
 
@@ -52,7 +52,7 @@ All final steps are implemented in `modelling2.py`
 Process followed:
 
 1. **Load data from SQL**
-   Connected to `ReadmitDB` and read from `features_ml`. We immediately saved `patient_id` separately so it wouldn’t be lost during preprocessing.
+   Connected to `ReadmitDB` and read from `features_ml`. Saved `patient_id` separately so it wouldn’t be lost during preprocessing.
 
 2. **Column hygiene**
    Dropped `admission_id` and `patient_id` from the modelling features so the model wouldn’t “cheat” with identifiers. `patient_id` is kept separately to reattach to predictions.
@@ -111,9 +111,9 @@ Centred the title using Streamlit’s Markdown with safe HTML, kept the layout w
 
 ## Errors hit and how they're resolved
 
-This section documents every notable issue we encountered, why it happened, and the fix we applied.
+This section documents every notable issue encountered, why it happened, and the fixes applied.
 
-### A. Python / Modeling
+### A. Python / Modelling
 
 1. **Patient ID misalignment after SMOTE (KeyError on indices)**
 
@@ -171,7 +171,7 @@ This section documents every notable issue we encountered, why it happened, and 
 1. **“Non-fast-forward” push rejection**
 
    * **Symptom**: `git push` was rejected because remote had updates absent locally.
-   * **Fix**: Commit local changes first, then integrate the remote history (we used a rebase), resolve any conflicts, and push again. The repo history now includes both sides.
+   * **Fix**: Commit local changes first, then integrate the remote history (used a rebase), resolve any conflicts, and push again. The repo history now includes both sides.
 
 ---
 
@@ -180,7 +180,7 @@ This section documents every notable issue we encountered, why it happened, and 
 * **true\_label** — Ground truth (1 = readmitted, 0 = not readmitted).
 * **logistic\_pred / logistic\_proba** — Output from Logistic Regression (hard class vs probability).
 * **rf\_pred / rf\_proba** — Output from Random Forest (hard class vs probability).
-* **rf\_risk\_flag** — Human-readable label derived from `rf_proba` (≥ 0.5 is High risk; otherwise Low risk).
+* **rf\_risk\_flag** — label derived from `rf_proba` (≥ 0.5 is High risk; otherwise Low risk).
 * **All original features** — Kept when using `features_predictions`, which enables slicing by clinical attributes like department, gender, adherence, etc.
 
 ---
