@@ -10,7 +10,10 @@ def load_data():
 
 df = load_data()
 
-st.subheader("🏥 Patient Readmission Risk Dashboard")
+st.markdown(
+    "<h1 style='text-align: center;'>🏥 Patient Readmission Risk Dashboard</h1>",
+    unsafe_allow_html=True
+)
 
 # Sidebar Filters 
 st. sidebar.header("Filters")
