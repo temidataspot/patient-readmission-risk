@@ -15,6 +15,6 @@ venv/
 .env
 *.env
 
-# Data you don't want to push (optional)
+# Not pushing this
 *.db
 *.sqlite
